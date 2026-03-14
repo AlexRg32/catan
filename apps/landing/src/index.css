@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-catan-red: #D23B2A;
+  --color-catan-gold: #F2A900;
+  --color-catan-blue: #0077C0;
+  --color-catan-brown: #8B5A2B;
+  --color-catan-green: #4E833C;
+  --color-catan-clay: #C06B3E;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #fff;
+}

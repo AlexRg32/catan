@@ -1,0 +1,25 @@
+{
+  "name": "catan-online",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/web",
+    "apps/landing"
+  ],
+  "scripts": {
+    "dev": "npm run dev:web",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "dev:landing": "npm run dev --workspace=apps/landing",
+    "dev:server": "cd apps/server && ./mvnw spring-boot:run -Dcheckstyle.skip=true -Dspotless.skip=true",
+    "build": "npm run build:web && npm run build:server",
+    "build:web": "npm run build --workspace=apps/web",
+    "build:landing": "npm run build --workspace=apps/landing",
+    "build:server": "cd apps/server && ./mvnw -q package -DskipTests",
+    "lint": "npm run lint:web && npm run lint:server",
+    "lint:web": "npm run lint --workspace=apps/web",
+    "lint:server": "cd apps/server && ./mvnw -q checkstyle:check",
+    "test": "npm run test:web && npm run test:server",
+    "test:web": "npm run test --workspace=apps/web --if-present",
+    "test:server": "cd apps/server && rm -f target/checkstyle-result.xml && ./mvnw -q test"
+  }
+}
